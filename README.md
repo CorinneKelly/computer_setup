@@ -1,2 +1,3 @@
 # computer_setup
-Scripts to help setup new aptop
+
+Scripts to help setup new laptop
