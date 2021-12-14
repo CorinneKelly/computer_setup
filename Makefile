@@ -1,3 +1,5 @@
+HOMEBREW_URL = $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)
+
 
 setup:
 	make initial_setup
@@ -13,7 +15,7 @@ setup_terminal:
 	cp ./.zshenv ~/.zshenv
 
 install_homebrew:
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	/bin/bash -c "$(HOMEBREW_URL)"
 	brew update
 
 
