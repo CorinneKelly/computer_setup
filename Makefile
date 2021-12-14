@@ -1,4 +1,4 @@
-HOMEBREW_URL = $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)
+HOMEBREW_URL = "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 
 setup:
@@ -15,8 +15,8 @@ setup_terminal:
 	cp ./.zshenv ~/.zshenv
 
 install_homebrew:
-	/bin/bash -c "$(HOMEBREW_URL)"
-	brew update
+	/bin/bash -c $(HOMEBREW_URL)
+	brew update --force --quiet
 
 
 # CORE Tools/global cli
