@@ -20,8 +20,10 @@ alias gco="git checkout"
 alias gaa="git add ."
 alias latest="git branch --sort=-committerdate | head -n 10"
 
+# ex: setup-git email@domain.com
 function setup-git() {
-  ssh-keygen -t rsa -b 4096 -C "corinnemariekelly@gmail.com" && eval "$(ssh-agent -s)" && ssh-add -K ~/.ssh/id_rsa && pbcopy < ~/.ssh/id_rsa.pub
+  git_email=$1
+  ssh-keygen -t rsa -b 4096 -C git_email && eval "$(ssh-agent -s)" && ssh-add -K ~/.ssh/id_rsa && pbcopy < ~/.ssh/id_rsa.pub
 }
 
 function gpu() {

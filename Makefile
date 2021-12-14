@@ -1,5 +1,5 @@
 
-run_setup:
+setup:
 	make initial_setup
 	reset
 	make install_core_services
@@ -17,9 +17,8 @@ install_homebrew:
 	brew update
 
 
-
 # CORE Tools/global cli
-install_core_services: install_xcode_tools install_nvm install_node install_expo install_pyenv install_python
+install_core_services: install_nvm install_node install_expo install_pyenv install_python
 
 install_nvm:
 	brew install nvm
@@ -27,8 +26,9 @@ install_nvm:
 install_node:
 	nvm install node
 
-install_xcode_tools:
-	xcode-select --install
+# needs to be installed before you can use any dev tools like git
+# install_xcode_tools:
+# 	xcode-select --install
 
 install_pyenv:
 	brew install pyenv
