@@ -1,14 +1,12 @@
 HOMEBREW_URL = "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 
-setup:
-	make initial_setup
-	reset
-	make install_core_services
-	make install_apps
-	make install_github_repos
+# DD Bck: 
+#	reset
 
-initial_setup: setup_terminal install_homebrew
+setup: initial_setup install_core_services install_apps install_github_repos
+
+initial_setup: setup_terminal install_homebrew install_nvm
 
 setup_terminal:
 	cp ./.zshrc ~/.zshrc
@@ -20,31 +18,27 @@ install_homebrew:
 
 
 # CORE Tools/global cli
-install_core_services: install_nvm install_node install_expo install_pyenv install_python
+install_core_services: install_node install_expo install_pyenv install_python
 
 install_nvm:
-	brew install nvm
+	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+	reset
 
 install_node:
-	nvm install node
-
-# needs to be installed before you can use any dev tools like git
-# install_xcode_tools:
-# 	xcode-select --install
+	nvm install 16
 
 install_pyenv:
 	brew install pyenv
-	echo 'eval "$(pyenv init --path)"' >> ~/.zprofile
-	echo 'eval "$(pyenv init -)"' >> ~/.zshrc
+	echo 'eval "$$(pyenv init --path)"' >> ~/.zprofile
+	echo 'eval "$$(pyenv init -)"' >> ~/.zshrc
 
 # 3.7.12 is currently pf_api version
 install_python:
-	pyenv 3:latest
-	pyenv 3.7.12:latest
+	pyenv install 3:latest
+
 
 install_expo:
 	npm install --global expo-cli
-
 
 
 # APPLICATIONS
@@ -59,8 +53,10 @@ install_slack:
 install_brave:
 	brew install --cask brave-browser
 
+# going off a hunch that vscode needs to be used before it exists in the application folder?
 install_vs_code:
 	brew install --cask visual-studio-code
+	code .
 	cp ./vs_code_settings.json ~/Library/Application\ Support/Code/User/settings.json
 
 install_docker:

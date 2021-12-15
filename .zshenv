@@ -1,14 +1,1 @@
-# android
-export ANDROID_SDK=/Users/corinnekelly/Library/Android/sdk
-export ANDROID_HOME=/Users/corinnekelly/Library/android/sdk
-export ANDROID_NDK=/Users/corinnekelly/Main/forkcast/android/android-ndk-r10e
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-export PATH=$PATH:$ANDROID_HOME/platform-tools:$PATH
-export JAVA_HOME="/usr/bin/java"
-export PATH=$JAVA_HOME/bin:$PATH
-export PATH="/usr/local/opt/node@14/bin:$PATH"
-export PATH=/Users/corinnekelly/Library/Android/sdk/platform-tools:$PATH
-export NODE_PATH="/usr/local/lib/node_modules:$NODE_PATH"
+export NVM_DIR=~/.nvm
