@@ -42,7 +42,7 @@ install_expo:
 
 
 # APPLICATIONS
-install_apps: install_clickup install_slack install_zeplin install_brave install_vs_code install_docker install_teams
+install_apps: install_clickup install_slack install_zeplin install_brave install_vs_code install_docker install_teams install_flux
 
 install_clickup:
 	brew install --cask clickup
@@ -53,10 +53,12 @@ install_slack:
 install_brave:
 	brew install --cask brave-browser
 
+install_flux:
+	brew install --cask flux
+
 # going off a hunch that vscode needs to be used before it exists in the application folder?
 install_vs_code:
 	brew install --cask visual-studio-code
-	code .
 	cp ./vs_code_settings.json ~/Library/Application\ Support/Code/User/settings.json
 
 install_docker:
