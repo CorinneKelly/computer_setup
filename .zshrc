@@ -77,8 +77,7 @@ function set_prompt_style {
 
   # Here is where we actually export the PS1 Variable which stores the text for your prompt
   autoload -U colors && colors
-  export PS1="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%% "$'\n'
-  # export PS1="\[\e]2;\u@\h\a[$BLUE\T$RESET] \$(parse_git_branch) $PURPLE\W\n$CHAR $RESET"
+  export PS1="$fg[cyan][20%D %*%B% ] $fg[yellow]%}%~% $fg[magenta]$(parse_git_branch)"$'\n'$CHAR$reset_color
 }
 
 function ssh_with_key() {
@@ -91,7 +90,8 @@ function reset(){
 }
 
 # Case-Insensitive Auto Completion
-set completion-ignore-case on
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+autoload -Uz compinit && compinit
 
 
 set_prompt_style
