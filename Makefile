@@ -76,7 +76,7 @@ install_zeplin:
 github_repos: create_pf_folder install_pf_mobile install_pf_api install_pf_pay
 
 create_pf_folder:
-	cd ../ && mkdr PowerFlex && cd PowerFlex
+	cd ../ && mkdir PowerFlex && cd PowerFlex
 
 install_pf_mobile:
 	git clone git@github.com:edf-re/powerflex_client_app.git
