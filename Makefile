@@ -1,13 +1,14 @@
 HOMEBREW_URL = "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 
-setup: initial_setup install_core_services install_apps install_github_repos
-
 initial_setup: setup_terminal install_homebrew install_nvm
+setup: install_core_services install_apps install_github_repos
+
 
 setup_terminal:
 	cp ./.zshrc ~/.zshrc
 	cp ./.zshenv ~/.zshenv
+	source ~/.zshenv && source ~/.zshrc
 
 install_homebrew:
 	/bin/bash -c $(HOMEBREW_URL)
@@ -19,10 +20,10 @@ install_core_services: install_node install_expo install_pyenv install_python
 
 install_nvm:
 	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
-	reset
+	open -a Terminal ~/Documents/computer_setup
 
 install_node:
-	nvm install 16
+	. $$NVM_DIR/nvm.sh && nvm install --lts --latest-npm  && nvm use --lts
 
 install_pyenv:
 	brew install pyenv
@@ -35,7 +36,7 @@ install_python:
 
 
 install_expo:
-	npm install --global expo-cli
+	. $$NVM_DIR/nvm.sh && nvm exec npm install --global expo-cli
 
 
 # APPLICATIONS
@@ -56,7 +57,7 @@ install_flux:
 # going off a hunch that vscode needs to be used before it exists in the application folder?
 install_vs_code:
 	brew install --cask visual-studio-code
-	cp ./vs_code_settings.json ~/Library/Application\ Support/Code/User/settings.json
+	# cp ./vs_code_settings.json ~/Library/Application\ Support/Code/User/settings.json
 
 install_docker:
 	brew install --cask docker	

@@ -21,9 +21,9 @@ alias gaa="git add ."
 alias latest="git branch --sort=-committerdate | head -n 10"
 
 # ex: setup-git email@domain.com
-function setup-git() {
+function setup_git() {
   git_email=$1
-  ssh-keygen -t rsa -b 4096 -C git_email && eval "$(ssh-agent -s)" && ssh-add -K ~/.ssh/id_rsa && pbcopy < ~/.ssh/id_rsa.pub
+  ssh-keygen -t rsa -b 4096 -C git_email && eval "$(ssh-agent -s)" && ssh-add --apple-use-keychain ~/.ssh/id_rsa && pbcopy < ~/.ssh/id_rsa.pub
 }
 
 function gpu() {
@@ -49,7 +49,7 @@ function ssh_pf() {
 
 
 # _______RN HELPERS_________
-function reset-cache(){
+function reset_cache(){
   watchman watch-del-all && rm -rf node_modules && npm install && rm -rf /tmp/metro-* && npm start --reset-cache
 }
 
@@ -76,11 +76,13 @@ function set_prompt_style {
   local   RESET="\[\e[0m\]"
 
   # Here is where we actually export the PS1 Variable which stores the text for your prompt
-  export PS1="\[\e]2;\u@\h\a[$BLUE\T$RESET] \$(parse_git_branch) $PURPLE\W\n$CHAR $RESET"
+  autoload -U colors && colors
+  export PS1="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%% "$'\n'
+  # export PS1="\[\e]2;\u@\h\a[$BLUE\T$RESET] \$(parse_git_branch) $PURPLE\W\n$CHAR $RESET"
 }
 
 function ssh_with_key() {
-  ssh-add -K ~/.ssh/id_rsa
+  ssh-add --apple-use-keychain ~/.ssh/id_rsa
 }
 
 #can also just save and open a new tab
@@ -89,7 +91,7 @@ function reset(){
 }
 
 # Case-Insensitive Auto Completion
-bind "set completion-ignore-case on"
+set completion-ignore-case on
 
 
 set_prompt_style
@@ -97,6 +99,5 @@ ssh_with_key
 
 
 # ______________NVM SETUP_____________
-export NVM_DIR="~/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
