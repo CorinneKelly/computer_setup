@@ -73,7 +73,7 @@ install_zeplin:
 
 
 # REPOS
-github_repos: create_pf_folder install_pf_mobile install_pf_api install_pf_pay
+install_github_repos: create_pf_folder install_pf_mobile install_pf_api install_pf_pay
 
 create_pf_folder:
 	cd ../ && mkdir PowerFlex && cd PowerFlex
