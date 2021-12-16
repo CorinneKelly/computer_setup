@@ -1,9 +1,6 @@
 HOMEBREW_URL = "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 
-# DD Bck: 
-#	reset
-
 setup: initial_setup install_core_services install_apps install_github_repos
 
 initial_setup: setup_terminal install_homebrew install_nvm
@@ -79,7 +76,7 @@ install_zeplin:
 github_repos: create_pf_folder install_pf_mobile install_pf_api install_pf_pay
 
 create_pf_folder:
-	cd ~/Documents && mkdr PowerFlex && cd PowerFlex
+	cd ../ && mkdr PowerFlex && cd PowerFlex
 
 install_pf_mobile:
 	git clone git@github.com:edf-re/powerflex_client_app.git
