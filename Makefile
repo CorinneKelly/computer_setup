@@ -16,7 +16,7 @@ install_homebrew:
 
 
 # CORE Tools/global cli
-install_core_services: install_node install_expo install_pyenv install_python
+install_core_services: install_node install_expo install_pyenv install_python install_pip
 
 install_nvm:
 	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
@@ -34,13 +34,15 @@ install_pyenv:
 install_python:
 	pyenv install 3:latest
 
+install_pip:
+	pip install pipenv
 
 install_expo:
 	. $$NVM_DIR/nvm.sh && nvm exec npm install --global expo-cli
 
 
 # APPLICATIONS
-install_apps: install_clickup install_slack install_zeplin install_brave install_vs_code install_docker install_teams install_flux install_outlook
+install_apps: install_clickup install_slack install_zeplin install_brave install_vs_code install_docker install_teams install_flux install_outlook install_android_studio
 
 install_clickup:
 	brew install --cask clickup
@@ -69,6 +71,12 @@ install_outlook:
 
 install_zeplin:
 	brew install --cask zeplin
+
+install_lastpass:
+	brew install --cask lastpass
+
+install_android_studio:
+	brew install --cask android-studio && brew install --cask android-sdk &&  brew install android-ndk 
 
 
 

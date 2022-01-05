@@ -19,6 +19,8 @@ alias gcb="git checkout -b"
 alias gco="git checkout"
 alias gaa="git add ."
 alias latest="git branch --sort=-committerdate | head -n 10"
+alias python="python3"
+alias pip="pip3"
 
 # ex: setup-git email@domain.com
 function setup_git() {
@@ -55,46 +57,38 @@ function reset_cache(){
 
 
 # _______Terminal Setup_________
+
 # This function is called in your prompt to output your active git branch.
-function parse_git_branch {
+function parse_git_branch() {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
 # This function styles your terminal
-function set_prompt_style {
-  # Define the prompt character
-  local   CHAR="🤓 👉 "
+# function set_prompt_style() {
+# Define the prompt character
+local   CHAR="🤓 👉 "
 
-  # Define some local colors
-  local   RED="\[\e[0;31m\]"
-  local   BLUE="\[\e[0;34m\]"
-  local   PURPLE="\[\e[0;35m\]"
-  local   GREEN="\[\e[0;32m\]"
-  local   bold=$(tput bold)
-
-  # Define a variable to reset the text color
-  local   RESET="\[\e[0m\]"
-
-  # Here is where we actually export the PS1 Variable which stores the text for your prompt
-  autoload -U colors && colors
-  export PS1="$fg[cyan][20%D %*%B% ] $fg[yellow]%}%~% $fg[magenta]$(parse_git_branch)"$'\n'$CHAR$reset_color
-}
-
-function ssh_with_key() {
-  ssh-add --apple-use-keychain ~/.ssh/id_rsa
-}
-
-#can also just save and open a new tab
-function reset(){
-  source ~/.zshrc && source ~/.zshenv
-}
+# Here is where we actually export the PS1 Variable which stores the text for your prompt
+autoload -U colors && colors
+setopt prompt_subst
+export PS1='%F{blue}[20%D %*%B% ] %F{cyan}%}%~% %F{magenta}$(parse_git_branch)'$'\n'$CHAR$reset_color
 
 # Case-Insensitive Auto Completion
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 autoload -Uz compinit && compinit
 
+# set_prompt_style
 
-set_prompt_style
+function ssh_with_key {
+  ssh-add --apple-use-keychain ~/.ssh/id_rsa
+}
+
+#can also just save and open a new tab
+function reset(){
+  source ~/.zshrc && source ~/.zshenv && source ~/.zprofile
+}
+
+
 ssh_with_key
 
 
