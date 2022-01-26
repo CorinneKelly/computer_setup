@@ -1,0 +1,76 @@
+{
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.statusBar.visible": false,
+  "files.autoSave": "onWindowChange",
+  "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+  "prettier.jsxSingleQuote": true,
+  "workbench.colorTheme": "Atom One Light",
+  "editor.detectIndentation": false,
+  "prettier.singleQuote": true,
+  "terminal.integrated.shell.osx": "/bin/zsh",
+  "explorer.confirmDragAndDrop": false,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "javascript.validate.enable": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "editor.tabSize": 2,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll": true
+  },
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "files.exclude": {
+    ".mypy_cache": true,
+    "*.egg-info": true,
+    "**/_pycache_": true,
+    "**/.git": false,
+    "*/.pyc": {
+      "when": "$(basename).py"
+    },
+    "**/tests/.pytest_cache": true
+  },
+  "python.defaultInterpreterPath": "./venv",
+  "python.showStartPage": true,
+  "editor.suggestSelection": "first",
+  "python.languageServer": "Default",
+  "[python]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "ms-python.python",
+    "gitlens.codeLens.symbolScopes": ["!Module"],
+    "editor.tabSize": 4,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": false,
+      "source.fixAll": true
+    }
+  },
+  "python.formatting.provider": "black",
+  "python.linting.flake8Enabled": true,
+  "python.venvPath": "./venv",
+  "search.exclude": {
+    ".pytest_cache": true,
+    "**/.pytest_cache": true
+  },
+  "auto-rename-tag.activationOnLanguage": ["*"],
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "diffEditor.ignoreTrimWhitespace": false,
+  "settingsSync.ignoredExtensions": [],
+  "settingsSync.ignoredSettings": [],
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+  "redhat.telemetry.enabled": false,
+  "json.schemas": [
+    {
+      "name": "vscode-expo-manifest",
+      "url": "file:///Users/corinnekelly/Library/Application%20Support/Code/User/globalStorage/bycedric.vscode-expo/manifest-43.0.0.json",
+      "fileMatch": ["app.json", "app.config.json"]
+    }
+  ],
+  "security.workspace.trust.untrustedFiles": "open"
+}
