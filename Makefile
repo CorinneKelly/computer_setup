@@ -8,7 +8,6 @@ setup: install_core_services install_apps install_github_repos
 setup_terminal:
 	cp ./.zshrc ~/.zshrc
 	cp ./.zshenv ~/.zshenv
-	source ~/.zshenv && source ~/.zshrc
 
 install_homebrew:
 	/bin/bash -c $(HOMEBREW_URL)
