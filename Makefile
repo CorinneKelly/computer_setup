@@ -11,8 +11,7 @@ setup_terminal:
 
 install_homebrew:
 	/bin/bash -c $(HOMEBREW_URL)
-	echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/corinnekelly/.zprofile
-    	eval "$(/opt/homebrew/bin/brew shellenv)"
+	echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/corinnekelly/.zprofile && eval "$(/opt/homebrew/bin/brew shellenv)"
 	brew update --force --quiet
 
 
