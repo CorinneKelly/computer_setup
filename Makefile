@@ -10,17 +10,14 @@ setup_terminal:
 	cp ./.zshenv ~/.zshenv
 
 install_homebrew:
-	/bin/bash -c $(HOMEBREW_URL)
-	echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/corinnekelly/.zprofile && eval "$(/opt/homebrew/bin/brew shellenv)"
-	brew update --force --quiet
+	/bin/bash -c $(HOMEBREW_URL) && echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/corinnekelly/.zprofile && eval "$(/opt/homebrew/bin/brew shellenv)" && brew update --force --quiet
 
 
 # CORE Tools/global cli
 install_core_services: install_asdf install_node install_expo  install_python
 
 install_asdf:
-	brew install coreutils curl git gpg gawk
-	git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.9.0
+	brew install asdf && echo -e "\n. $(brew --prefix asdf)/libexec/asdf.sh" >> ${ZDOTDIR:-~}/.zshrc
 
 install_node:
 	asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
