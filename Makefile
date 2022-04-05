@@ -16,7 +16,7 @@ install_homebrew:
 
 
 # CORE Tools/global cli
-install_core_services: install_node install_expo install_pyenv install_python install_pip
+install_core_services: install_node install_expo install_asdf install_python install_pip
 
 install_nvm:
 	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
@@ -25,10 +25,8 @@ install_nvm:
 install_node:
 	. $$NVM_DIR/nvm.sh && nvm install --lts --latest-npm  && nvm use --lts
 
-install_pyenv:
-	brew install pyenv
-	echo 'eval "$$(pyenv init --path)"' >> ~/.zprofile
-	echo 'eval "$$(pyenv init -)"' >> ~/.zshrc
+install_asdf:
+	git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.9.0
 
 install_python:
 	pyenv install 3:latest
