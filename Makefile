@@ -10,14 +10,14 @@ setup_terminal:
 	cp ./.zshenv ~/.zshenv
 
 install_homebrew:
-	/bin/bash -c $(HOMEBREW_URL) && echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/corinnekelly/.zprofile && eval "$(/opt/homebrew/bin/brew shellenv)" && brew update --force --quiet
-
-
-# CORE Tools/global cli
-install_core_services: install_asdf install_node install_expo  install_python
+	/bin/bash -c $(HOMEBREW_URL) && echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/corinnekelly/.zprofile && eval "$(/opt/homebrew/bin/brew shellenv)"
 
 install_asdf:
 	brew install asdf && echo -e "\n. $(brew --prefix asdf)/libexec/asdf.sh" >> ${ZDOTDIR:-~}/.zshrc
+
+
+# CORE Tools/global cli
+install_core_services: install_node  install_python
 
 install_node:
 	asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
@@ -32,12 +32,17 @@ install_python:
 install_pipenv:
 	brew install pipenv
 
+
+install_tools: install_expo install_android_studio
+
 install_expo:
 	npm install --global expo-cli
 
+install_android_studio:
+	brew install --cask android-studio && brew install --cask android-sdk &&  brew install android-ndk 
 
 # APPLICATIONS
-install_apps: install_clickup install_slack install_zeplin install_brave install_vs_code install_docker install_teams install_flux install_outlook install_android_studio install_postman
+install_apps: install_clickup install_slack install_brave install_flux install_vs_code install_docker install_teams install_outlook install_zeplin install_lastpass install_postman
 
 install_clickup:
 	brew install --cask clickup
@@ -69,9 +74,6 @@ install_zeplin:
 
 install_lastpass:
 	brew install --cask lastpass
-
-install_android_studio:
-	brew install --cask android-studio && brew install --cask android-sdk &&  brew install android-ndk 
 
 install_postman:
 	brew install --cask postman
