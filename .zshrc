@@ -66,7 +66,6 @@ export PS1='%F{blue}[20%D %*%B% ] %F{cyan}%}%~% %F{magenta}$(parse_git_branch)'$
 
 # Case-Insensitive Auto Completion
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
-autoload -Uz compinit && compinit
 
 # set_prompt_style
 
@@ -86,3 +85,10 @@ ssh_with_key
 # ______________NVM SETUP_____________
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# ______________ASDF SETUP_____________
+. $HOME/.asdf/asdf.sh
+fpath=(${ASDF_DIR}/completions $fpath)
+
+# ______________INIT PROFILE_____________
+autoload -Uz compinit && compinit
