@@ -16,26 +16,27 @@ install_homebrew:
 
 
 # CORE Tools/global cli
-install_core_services: install_node install_expo install_asdf install_python install_pip
-
-install_nvm:
-	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
-	open -a Terminal ~/Documents/computer_setup
-
-install_node:
-	. $$NVM_DIR/nvm.sh && nvm install --lts --latest-npm  && nvm use --lts
+install_core_services: install_asdf install_node install_expo  install_python
 
 install_asdf:
+	brew install coreutils curl git gpg gawk
 	git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.9.0
 
-install_python:
-	pyenv install 3:latest
+install_node:
+	asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+	asdf install nodejs latest
+	asdf global nodejs latest
 
-install_pip:
-	pip install pipenv
+install_python:
+	brew install openssl readline
+	asdf plugin-add python
+	asdf global python system
+
+install_pipenv:
+	brew install pipenv
 
 install_expo:
-	. $$NVM_DIR/nvm.sh && nvm exec npm install --global expo-cli
+	npm install --global expo-cli
 
 
 # APPLICATIONS
@@ -65,8 +66,6 @@ install_teams:
 
 install_outlook:
 	brew install --cask microsoft-outlook
-
-
 
 install_zeplin:
 	brew install --cask zeplin
