@@ -6,7 +6,7 @@ export GIT_MERGE_AUTOEDIT='no'
   # alias
 alias gcl="git clone"
 alias gst="git status"
-alias gl="git pull"
+alias gpf="git pull --ff-only"
 alias gp="git push"
 alias gd="git diff | subl"
 alias gc="git commit -v"
