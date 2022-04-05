@@ -87,8 +87,7 @@ ssh_with_key
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # ______________ASDF SETUP_____________
-. $HOME/.asdf/asdf.sh
-fpath=(${ASDF_DIR}/completions $fpath)
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 # ______________INIT PROFILE_____________
 autoload -Uz compinit && compinit
