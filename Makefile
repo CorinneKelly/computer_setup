@@ -24,9 +24,11 @@ install_asdf:
 install_core_services: install_node  install_python
 
 install_node:
-	asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-	asdf install nodejs latest
 	asdf global nodejs latest
+
+#	Apparently these are repetitive
+# 	asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+#	asdf install nodejs latest
 
 install_python:
 	brew install openssl readline
@@ -37,7 +39,7 @@ install_pipenv:
 	brew install pipenv
 
 
-install_tools: install_expo install_android_studio
+install_mobile_tools: install_expo install_android_studio
 
 install_expo:
 	npm install --global expo-cli
