@@ -10,7 +10,10 @@ setup_terminal:
 	cp ./.zshenv ~/.zshenv
 
 install_homebrew:
-	/bin/bash -c $(HOMEBREW_URL) && echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/corinnekelly/.zprofile && eval "$(/opt/homebrew/bin/brew shellenv)"
+	/bin/bash -c $(HOMEBREW_URL) && 
+	
+setup_homebrew	
+	echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/corinnekelly/.zprofile && eval "$(/opt/homebrew/bin/brew shellenv)"
 
 install_asdf:
 	brew install asdf && echo -e "\n. $(brew --prefix asdf)/libexec/asdf.sh" >> ${ZDOTDIR:-~}/.zshrc
