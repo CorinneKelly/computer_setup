@@ -12,7 +12,7 @@ setup_terminal:
 install_homebrew:
 	/bin/bash -c $(HOMEBREW_URL) && 
 	
-setup_homebrew	
+setup_homebrew:
 	echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/corinnekelly/.zprofile && eval "$(/opt/homebrew/bin/brew shellenv)"
 
 install_asdf:
