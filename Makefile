@@ -1,7 +1,7 @@
 HOMEBREW_URL = "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 
-initial_setup: setup_terminal install_homebrew install_nvm
+initial_setup: setup_terminal install_homebrew
 setup: install_core_services install_apps install_github_repos
 
 
