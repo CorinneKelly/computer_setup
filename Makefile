@@ -45,7 +45,7 @@ install_android_studio:
 	brew install --cask android-studio && brew install --cask android-sdk &&  brew install android-ndk 
 
 # APPLICATIONS
-install_apps: install_clickup install_slack install_brave install_flux install_vs_code install_docker install_teams install_outlook install_zeplin install_lastpass install_postman
+install_apps: install_clickup install_slack install_brave install_flux install_vs_code install_docker install_teams install_outlook install_zeplin install_lastpass install_postman install_notion install_zoom
 
 install_clickup:
 	brew install --cask clickup
@@ -80,3 +80,9 @@ install_lastpass:
 
 install_postman:
 	brew install --cask postman
+
+install_notion:
+	brew install --cask notion
+
+install_zoom:
+	brew install --cask zoom
