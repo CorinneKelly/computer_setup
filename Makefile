@@ -16,7 +16,8 @@ setup_homebrew:
 	echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/corinnekelly/.zprofile && eval "$(/opt/homebrew/bin/brew shellenv)"
 
 install_asdf:
-	brew install asdf && echo -e "\n. $(brew --prefix asdf)/libexec/asdf.sh" >> ${ZDOTDIR:-~}/.zshrc
+	brew install asdf 
+	echo -e '\n. "$(brew --prefix asdf)"/libexec/asdf.sh' >> ${ZDOTDIR:-~}/.zshrc
 
 
 # CORE Tools/global cli
@@ -35,7 +36,6 @@ install_python:
 install_pipenv:
 	brew install pipenv
 
-
 install_tools: install_expo install_android_studio
 
 install_expo:
@@ -45,7 +45,7 @@ install_android_studio:
 	brew install --cask android-studio && brew install --cask android-sdk &&  brew install android-ndk 
 
 # APPLICATIONS
-install_apps: install_clickup install_slack install_brave install_flux install_vs_code install_docker install_teams install_outlook install_zeplin install_lastpass install_postman install_notion install_zoom
+install_apps: install_clickup install_slack install_brave install_flux install_vs_code install_docker install_teams install_outlook install_zeplin install_lastpass install_postman install_notion install_zoom install_discord install_figma
 
 install_clickup:
 	brew install --cask clickup
@@ -86,3 +86,12 @@ install_notion:
 
 install_zoom:
 	brew install --cask zoom
+
+install_linear:
+	brew install --cask linear-linear
+
+install_discord:
+	brew install --cask discord
+
+install_figma:
+	brew install --cask figma
