@@ -29,5 +29,5 @@ Scripts to help setup new laptop
 4. Run `make install_asdf`
 5. Run `make install_node`
 6. Run `make install_core_services`
-7. Run `make install_tools`
+7. Run (Optional) `make install_mobile_tools`
 8. Run `make install_apps`
