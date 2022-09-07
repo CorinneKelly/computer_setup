@@ -1,8 +1,5 @@
-HOMEBREW_URL = "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-
 initial_setup: setup_terminal install_homebrew
-setup: install_core_services install_apps install_github_repos
+setup: install_core_services install_apps
 
 
 setup_terminal:
@@ -10,7 +7,7 @@ setup_terminal:
 	cp ./.zshenv ~/.zshenv
 
 install_homebrew:
-	/bin/bash -c $(HOMEBREW_URL) && 
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	
 setup_homebrew:
 	echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/corinnekelly/.zprofile
@@ -64,7 +61,6 @@ install_flux:
 
 install_vs_code:
 	brew install --cask visual-studio-code
-	# cp ./vs_code_settings.json ~/Library/Application\ Support/Code/User/settings.json
 
 install_docker:
 	brew install --cask docker	
