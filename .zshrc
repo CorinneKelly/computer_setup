@@ -1,6 +1,7 @@
 # ___________GIT___________
-  # vars
-  # This variable configures git to not require a message when you merge.
+# vars
+# This variable configures git to not require a message when you merge.
+
 export GIT_MERGE_AUTOEDIT='no'
 
   # alias
@@ -55,7 +56,6 @@ function parse_git_branch() {
 }
 
 # This function styles your terminal
-# function set_prompt_style() {
 # Define the prompt character
 local   CHAR="🤓 👉 "
 
@@ -67,27 +67,15 @@ export PS1='%F{blue}[20%D %*%B% ] %F{cyan}%}%~% %F{magenta}$(parse_git_branch)'$
 # Case-Insensitive Auto Completion
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 
-# set_prompt_style
-
-function ssh_with_key {
-  ssh-add --apple-use-keychain ~/.ssh/id_rsa
-}
-
 #can also just save and open a new tab
 function reset(){
   source ~/.zshrc && source ~/.zshenv && source ~/.zprofile
 }
 
 
-ssh_with_key
-
-
 # ______________NVM SETUP_____________
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# ______________ASDF SETUP_____________
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 # ______________INIT PROFILE_____________
 autoload -Uz compinit && compinit
