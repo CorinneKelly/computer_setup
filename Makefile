@@ -13,15 +13,17 @@ setup_homebrew:
 	echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/corinnekelly/.zprofile
 	eval "$(/opt/homebrew/bin/brew shellenv)"
 
+
 install_asdf:
 	brew install asdf 
-	echo -e '\n. "$(brew --prefix asdf)"/libexec/asdf.sh' >> ${ZDOTDIR:-~}/.zshrc
-
+	echo -e "\n. $(brew --prefix asdf)/libexec/asdf.sh" >> ${ZDOTDIR:-~}/.zshrc
+	brew install gpg gawk
 
 # CORE Tools/global cli
 install_core_services: install_node  install_python
 
 install_node:
+	asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 	asdf global nodejs latest
 
 #	Apparently these are repetitive
