@@ -1,7 +1,6 @@
 initial_setup: setup_terminal install_homebrew
 setup: install_core_services install_apps
 
-
 setup_terminal:
 	cp ./.zshrc ~/.zshrc
 	cp ./.zshenv ~/.zshenv
@@ -10,7 +9,7 @@ install_homebrew:
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	
 setup_homebrew:
-	echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/corinnekelly/.zprofile
+	echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/$(username)/.zprofile
 	eval "$(/opt/homebrew/bin/brew shellenv)"
 
 

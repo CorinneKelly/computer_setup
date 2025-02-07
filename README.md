@@ -25,7 +25,7 @@ Scripts to help setup new laptop
 
 1. Run `cd ~/Documents && git clone git@github.com:CorinneKelly/computer_setup.git && cd computer_setup`
 2. Run `make initial_setup`
-3. Run `make setup_homebrew`
+3. Run `make setup_homebrew username=<your computer username>`
 4. Run `make install_asdf`
 5. Run `make install_node`
 6. Run `make install_core_services`
