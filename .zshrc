@@ -6,7 +6,7 @@ export GIT_MERGE_AUTOEDIT='no'
 
   # alias
 alias gcl="git clone"
-alias gst="git status"
+alias gs="git status"
 alias gpf="git pull --ff-only"
 alias gp="git push"
 alias gd="git diff | subl"
@@ -31,6 +31,10 @@ function setup_git() {
 
 function gpu() {
 	git push --set-upstream origin $(git branch --show-current)
+}
+
+function gitfind() {
+  git branch --list "*$1*" --sort=-committerdate
 }
 
 
