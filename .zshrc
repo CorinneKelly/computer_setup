@@ -83,3 +83,6 @@ function reset(){
 
 # ______________INIT PROFILE_____________
 autoload -Uz compinit && compinit
+
+# ______________SET ASDF_____________
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
